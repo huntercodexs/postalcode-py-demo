@@ -8,3 +8,4 @@ conn.request('GET', '/ws/12090002/json/', 'null', headers)
 
 response = conn.getresponse()
 print(response.read().decode())
+
