@@ -1,12 +1,12 @@
 import unittest
 from unittest.mock import patch
 
-from postalcode_def import requester
+from postalcode_class import PostalCode
 
 
 class TestPostalCode(unittest.TestCase):
 
-    @patch('postalcode_def.requester')
+    @patch('postalcode_class.PostalCode.requester')
     def test_postalcode_ok(self, mock_requester):
         mock_requester.return_value = {
             'cep': '12090-002',
@@ -27,7 +27,7 @@ class TestPostalCode(unittest.TestCase):
             'postalcode': '12090002'
         }
 
-        result = requester(event, None)
+        result = PostalCode.requester(event, None)
         self.assertEqual(result['cep'], '12090-002')
         print('OK')
 

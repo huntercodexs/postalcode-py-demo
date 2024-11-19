@@ -1,34 +1,15 @@
-import unittest
-from unittest.mock import patch
-
 from postalcode_def import requester
 
+def test_postalcode_def_ok():
 
-class TestPostalCode(unittest.TestCase):
+    event = {
+        'postalcode': '12090002'
+    }
 
-    @patch('postalcode_def.requester')
-    def test_postalcode_ok(self, mock_requester):
-        mock_requester.return_value = {
-            'cep': '12090-002',
-            'logradouro': 'Rua São Caetano',
-            'complemento': '',
-            'unidade': '',
-            'bairro': 'Campos Elíseos',
-            'localidade': 'Taubaté',
-            'uf': 'SP',
-            'estado': 'São Paulo',
-            'regiao': 'Sudeste',
-            'ibge': '3554102',
-            'gia': '6889',
-            'ddd': '12',
-            'siafi': '7183'}
+    result = requester(event, None)
+    assert result['cep'] == '12090-002'
+    print('OK')
 
-        event = {
-            'postalcode': '12090002'
-        }
+if __name__ == "__main__":
+    test_postalcode_def_ok()
 
-        result = requester(event, None)
-        self.assertEqual(result['cep'], '12090-002')
-
-if __name__ == '__main__':
-    unittest.main()
