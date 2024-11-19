@@ -29,7 +29,7 @@ class TestPostalCode(unittest.TestCase):
 
         result = PostalCode.requester(event, None)
         self.assertEqual(result['cep'], '12090-002')
-        print('OK')
+        print('OK1')
 
 if __name__ == '__main__':
     unittest.main()

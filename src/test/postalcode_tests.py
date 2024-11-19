@@ -8,7 +8,7 @@ def test_postalcode_def_ok():
 
     result = requester(event, None)
     assert result['cep'] == '12090-002'
-    print('OK')
+    print('OK5')
 
 if __name__ == "__main__":
     test_postalcode_def_ok()

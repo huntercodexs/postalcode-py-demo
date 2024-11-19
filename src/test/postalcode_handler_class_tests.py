@@ -1,14 +1,14 @@
 import unittest
 from unittest.mock import patch
 
-from postalcode_def import requester
+from postalcode_handler_class import lambda_handler
 
 
 class TestPostalCode(unittest.TestCase):
 
-    @patch('postalcode_def.requester')
-    def test_postalcode_ok(self, mock_requester):
-        mock_requester.return_value = {
+    @patch('postalcode_handler_class.lambda_handler')
+    def test_postalcode_ok(self, mock_lambda_handler):
+        mock_lambda_handler.return_value = {
             'cep': '12090-002',
             'logradouro': 'Rua São Caetano',
             'complemento': '',
@@ -27,9 +27,9 @@ class TestPostalCode(unittest.TestCase):
             'postalcode': '12090002'
         }
 
-        result = requester(event, None)
+        result = lambda_handler(event, None)
         self.assertEqual(result['cep'], '12090-002')
-        print('OK')
+        print('OK4')
 
 if __name__ == '__main__':
     unittest.main()
