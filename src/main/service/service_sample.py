@@ -1,7 +1,5 @@
-import json
-
 class ServiceSample:
     @staticmethod
-    def test_service(str):
-        print(f"test: {str}")
+    def print_service_sample_message(txt:str):
+        print(f"service_sample: {txt}")
 

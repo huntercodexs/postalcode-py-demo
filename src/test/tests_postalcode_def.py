@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from postalcode_def import requester
+from function.function_postalcode_http_client import dispatch_by_http_client
 
 
 class TestPostalCode(unittest.TestCase):
@@ -27,7 +27,7 @@ class TestPostalCode(unittest.TestCase):
             'postalcode': '12090002'
         }
 
-        result = requester(event, None)
+        result = dispatch_by_http_client(event, None)
         self.assertEqual(result['cep'], '12090-002')
         print('OK2')
 
