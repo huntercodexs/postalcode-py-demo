@@ -1,7 +1,7 @@
 import http.client
 from time import sleep
 
-from clazz.clazz_postalcode_http_client import PostalCodeHttpClientClazz
+from clazz.old_clazz_postalcode_http_client import PostalCodeHttpClientClazz
 from clazz.clazz_postalcode_requests import PostalCodeRequestsClazz
 from clazz.clazz_postalcode_requests_simple import PostalCodeRequestsSimpleClazz
 from handle.handle_postalcode_http_client import PostalCodeHttpClientHandleAPI
