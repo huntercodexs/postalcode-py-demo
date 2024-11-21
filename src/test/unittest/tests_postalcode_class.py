@@ -1,12 +1,10 @@
 import unittest
-from unittest.mock import patch
 
 from clazz.clazz_postalcode_http_client import PostalCodeHttpClientClazz
 
 
-class TestPostalCode(unittest.TestCase):
+class TestPostalCode():
 
-    @patch('postalcode_class.PostalCode.requester')
     def test_postalcode_ok(self, mock_requester):
         mock_requester.return_value = {
             'cep': '12090-002',
