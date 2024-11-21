@@ -17,6 +17,8 @@ class PostalCodeHttpClientClazz:
         conn.request('GET', f'/ws/{code}/json/', 'null', headers)
         response = json.loads(conn.getresponse().read().decode())
 
+        print('CHAMOUUUU')
+
         return response
 
     

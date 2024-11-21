@@ -1,6 +1,6 @@
 from time import sleep
 
-from main_postalcode_def_requests import lambda_handler
+from main_postalcode_def_requests_simple import lambda_handler
 
 
 def test_lambda_handler_successfully():
@@ -11,17 +11,15 @@ def test_lambda_handler_successfully():
 
     result = lambda_handler(event, None)
     assert result['cep'] == '12090-002'
-    print('test_lambda_handler_successfully - PASSED')
 
 def test_lambda_handler_error():
 
     event = {
-        'postalcode': '12009020'
+        'postalcode': '82009020'
     }
 
     result = lambda_handler(event, None)
     assert result['erro'] == 'true'
-    print('test_lambda_handler_error - PASSED')
 
 def test_lambda_handler_invalid_code():
 
@@ -33,7 +31,6 @@ def test_lambda_handler_invalid_code():
         lambda_handler(event, None)
     except ValueError as e:
         assert 1 == 1
-        print('test_lambda_handler_invalid_code - PASSED')
 
 # NOTE:
 # To run these tests don't install the frameworks for tests purpose, for example: pytest, mock, unittest, etc.
@@ -45,8 +42,11 @@ def test_lambda_handler_invalid_code():
 #
 if __name__ == "__main__":
     test_lambda_handler_successfully()
-    sleep(3)
+    print('test_lambda_handler_successfully - PASSED')
+    sleep(1)
     test_lambda_handler_error()
-    sleep(3)
+    print('test_lambda_handler_error - PASSED')
+    sleep(1)
     test_lambda_handler_invalid_code()
+    print('test_lambda_handler_invalid_code - PASSED')
 
